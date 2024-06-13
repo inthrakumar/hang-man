@@ -13,11 +13,10 @@ function WordToGuess({wordtoguess,guessedLetters,reveal}:Word_to_guess) {
                     <span
                       style={{
                         visibility:
-                          guessedLetters.includes(letter) || reveal
+                          (guessedLetters.includes(letter)) || reveal
                             ? "visible"
                             : "hidden",
-                        color:
-                          !guessedLetters.includes(letter) && reveal ? "red" : "black",
+                        
                       }}
                     >
                       {letter}

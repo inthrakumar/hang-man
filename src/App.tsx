@@ -8,11 +8,13 @@ import KeyBoard from './components/KeyBoard'
 
 function App() {
   function getWord() {
-    return words[Math.floor(Math.random() * words.length)]
+    const Word = words[Math.floor(Math.random() * words.length)]
+    return Word
   }
   const [word, setword] = useState<string>(getWord)
 
   const [guessedLetters, setguessedletters] = useState<string[]>([])
+  const [revealWord,setreveal]=useState<boolean>(false);
 
   const incorrectletter = guessedLetters.filter(letter => {
     return !word.includes(letter);
@@ -22,12 +24,16 @@ function App() {
   const isWinner = word
     .split("")
     .every(letter => guessedLetters.includes(letter))
-
+  const Restart=()=>{
+    window.location.reload();
+  }
   const addGuessedLetter = useCallback(
     (letter: string) => {
-      if (guessedLetters.includes(letter) || isLoser || isWinner) return
+      
+      if (guessedLetters.includes(letter)  ||isLoser|| isWinner) return
 
       setguessedletters(currentLetters => [...currentLetters, letter])
+      
     },
     [guessedLetters, isWinner, isLoser]
   )
@@ -76,23 +82,23 @@ function App() {
         alignItems: "center",
       }}
     >
-      <div className='info-container'>      {isWinner && "Winner! - Refresh to try again"}
-        {isLoser && "Nice Try - Refresh to try again"}</div>
-        <div style={{ display: "flex", gap: "1rem", width: "800px", justifyContent: "space-around" }}>
-          <Hangman number_of_guesses={incorrectletter.length} />
-          <WordToGuess wordtoguess={word} guessedLetters={guessedLetters} /></div>
-        <KeyBoard disabled={isWinner || isLoser} activeLetters={guessedLetters.filter(letter =>
-          word.includes(letter)
-        )} inactiveLetters={incorrectletter} addGuessedLetter={addGuessedLetter
-        } />
-      </div>
+      <div className='info-container'>      {isWinner && <div>Congratulations <button type='reset' className='btn1'onClick={Restart}>Restart</button></div>}
+        {isLoser && <div><button type='reset'onClick={Restart} className='btn1'>Restart</button></div>}{!isWinner && !isLoser &&<div><button type='reset'onClick={Restart} className='btn1'>Restart</button><button type='reset' className='btn1' onClick={()=>{setreveal(true)}}>Reveal</button></div>}</div>
+      <div style={{ display: "flex", gap: "1rem", width: "800px", justifyContent: "space-around" }}>
+        <Hangman number_of_guesses={incorrectletter.length} />
+        <WordToGuess wordtoguess={word} guessedLetters={guessedLetters} reveal={isLoser} /></div>
+      <KeyBoard disabled={isWinner || isLoser} activeLetters={guessedLetters.filter(letter =>
+        word.includes(letter)
+      )} inactiveLetters={incorrectletter} addGuessedLetter={addGuessedLetter
+      } />
+    </div>
 
 
-    
 
-    <div/>
+      
+      <div />
     </>
-      )
+  )
 }
 
-      export default App
+export default App

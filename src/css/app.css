@@ -7,6 +7,26 @@
 }
 
 .info-container {
-    font-size: "2rem";
-    text-align: "center"
+    font-size: 3rem;
+    text-align: center;
+    font-weight:500;
+    color: #646cffaa;
+    margin:2rem;
+    padding:2rem;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    gap:1rem;
+}
+
+.btn1{
+    all:unset;
+    font-size: 1rem;
+    color:#fff;
+    padding: 10px 6px;
+    border: 1px solid #646cffaa;
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+}
+.btn1:hover{
+    background-color: #383636;
 }
