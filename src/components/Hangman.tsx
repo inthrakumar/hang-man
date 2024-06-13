@@ -70,15 +70,14 @@ const Right_leg:JSX.Element = (<div style={{
     transformOrigin:"right bottom",
     transform: "rotate(-135deg)"
 }} />)
-function Hangman() {
+const BODY_PARTS = [HEAD,BODY,Left_Arm,Right_Arm,Right_leg,Left_leg]
+type Hangman={
+    number_of_guesses:number
+}
+function Hangman({number_of_guesses}:Hangman) {
     return (
         <div className='basic-body'>
-            {HEAD}
-            {BODY}
-            {Right_Arm}
-            {Left_Arm}
-            {Left_leg}
-            {Right_leg}
+            {BODY_PARTS.slice(0, number_of_guesses)}
             <div className='hanging-wire-v'></div>
             <div className="hanging-wire-h"></div>
             <div className="body-line"></div>
