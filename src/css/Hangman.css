@@ -1,0 +1,35 @@
+.basic-body{
+    position: relative !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.bottom-line{
+    width: 200px;
+    height:12px;
+    background-color: black !important;
+}
+
+.body-line{
+    height:280px;
+    width:12px;
+    background-color: black;
+}
+
+.hanging-wire-h{
+    width:150px;
+    height: 8px;
+    background-color: black;
+    margin-left:138px;
+}
+.hanging-wire-v{
+    width:6px;
+    height: 25px;
+    position: absolute;
+    top:0;
+    right: 0;
+    background-color: black;
+}

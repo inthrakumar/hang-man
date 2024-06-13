@@ -1,0 +1,15 @@
+.word-to-guess {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 5rem;
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
+    color: #333;
+    text-transform: uppercase;
+    height: fit-content;
+}
+
+.Word {
+    border-bottom: 0.25rem solid #000;
+    padding-bottom: 0.25rem;
+}
