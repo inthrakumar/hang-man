@@ -83,8 +83,8 @@ function App() {
       }}
     >
       <div className='info-container'>      {isWinner && <div>Congratulations <button type='reset' className='btn1'onClick={Restart}>Restart</button></div>}
-        {isLoser && <div><button type='reset'onClick={Restart} className='btn1'>Restart</button></div>}{!isWinner && !isLoser &&<div><button type='reset'onClick={Restart} className='btn1'>Restart</button><button type='reset' className='btn1' onClick={()=>{setreveal(true)}}>Reveal</button></div>}</div>
-      <div style={{ display: "flex", gap: "1rem", width: "800px", justifyContent: "space-around" }}>
+        {isLoser && <div><button type='reset'onClick={Restart} className='btn1'>Restart</button></div>}{!isWinner && !isLoser &&<div className='heading'><div style={{textWrap:"nowrap"}}>Welcome to the Hangman Game</div><div className='btn-div'><button type='reset'onClick={Restart} className='btn1'>Restart</button><button type='reset' className='btn1' onClick={()=>{setreveal(true)}}>Reveal</button></div></div>}</div>
+      <div style={{ display: "flex", gap: "1.5rem", width: "800px", justifyContent: "space-around" }}>
         <Hangman number_of_guesses={incorrectletter.length} />
         <WordToGuess wordtoguess={word} guessedLetters={guessedLetters} reveal={isLoser} /></div>
       <KeyBoard disabled={isWinner || isLoser} activeLetters={guessedLetters.filter(letter =>

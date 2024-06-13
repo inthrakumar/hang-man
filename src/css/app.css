@@ -30,3 +30,20 @@
 .btn1:hover{
     background-color: #383636;
 }
+
+.heading{
+    font-size: 2rem;
+    text-align: center;
+    font-weight:500;
+    color: #9278f0aa;
+
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    gap:1rem;
+}
+
+.btn-div{
+    display: flex;
+    justify-content: center;
+    gap:1rem;
+}
