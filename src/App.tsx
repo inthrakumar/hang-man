@@ -3,6 +3,7 @@ import words from "./wordlist.json"
 import './css/app.css'
 import Hangman from './components/Hangman'
 import WordToGuess from './components/WordToGuess'
+import KeyBoard from './components/KeyBoard'
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
       <div style={{display:"flex",gap:"1rem",width:"800px",justifyContent:"space-around"}}>
       <Hangman />
       <WordToGuess /></div>
+      <KeyBoard/>
     </div>
       
 
