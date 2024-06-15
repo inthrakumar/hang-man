@@ -30,24 +30,25 @@ function App() {
   const addGuessedLetter = useCallback(
     (letter: string) => {
       
-      if (guessedLetters.includes(letter)  ||isLoser|| isWinner) return
+      if (isLoser|| isWinner) return
 
       setguessedletters(currentLetters => [...currentLetters, letter])
       
     },
     [guessedLetters, isWinner, isLoser]
   )
-  
+  console.log(guessedLetters);
+  const handler = (e: any) => {
+    const key = e.key
+    if (!key.match(/^[a-z]$/)) return
+    
+    e.preventDefault();
+    addGuessedLetter(key)
+  }
   useEffect(() => {
-    const handler = (e: any) => {
-      const key = e.key
-      if (!key.match(/^[a-z]$/)) return
+    
+    document.addEventListener("keypress", handler);
 
-      e.preventDefault()
-      addGuessedLetter(key)
-    }
-
-    document.addEventListener("keypress", handler)
     
     return () => {
       document.removeEventListener("keypress", handler)
