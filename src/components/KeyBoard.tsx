@@ -51,7 +51,8 @@ function KeyBoard({
         const isInactive = inactiveLetters.includes(key)
         return (
           <button
-            onClick={() => addGuessedLetter(key)}
+            onClick={() => addGuessedLetter(key)
+            }
             className={`btn ${isActive ? "active" : ""} ${
               isInactive ? "inactive" : ""
             }`}

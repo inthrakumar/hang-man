@@ -37,7 +37,7 @@ function App() {
     },
     [guessedLetters, isWinner, isLoser]
   )
-
+  
   useEffect(() => {
     const handler = (e: any) => {
       const key = e.key
@@ -48,7 +48,7 @@ function App() {
     }
 
     document.addEventListener("keypress", handler)
-
+    
     return () => {
       document.removeEventListener("keypress", handler)
     }
@@ -82,8 +82,8 @@ function App() {
         alignItems: "center",
       }}
     >
-      <div className='info-container'>      {isWinner && <div>Congratulations <button type='reset' className='btn1'onClick={Restart}>Restart</button></div>}
-        {isLoser && <div><button type='reset'onClick={Restart} className='btn1'>Restart</button></div>}{!isWinner && !isLoser &&<div className='heading'><div style={{textWrap:"nowrap"}}>Welcome to the Hangman Game</div><div className='btn-div'><button type='reset'onClick={Restart} className='btn1'>Restart</button><button type='reset' className='btn1' onClick={()=>{setreveal(true)}}>Reveal</button></div></div>}</div>
+      <div className='info-container'>      {isWinner && <div>Congratulations &#129395;<button type='reset' className='btn1'onClick={Restart}>Restart</button></div>}
+      {isLoser && <div>Try Again &#129300; <button type='reset' className='btn1'onClick={Restart}>Restart</button></div>}{!isWinner && !isLoser &&<div className='heading'><div style={{textWrap:"nowrap"}}>Welcome to the Hangman Game</div><div className='btn-div'><button type='reset'onClick={Restart} className='btn1'>Restart</button><button type='reset' className='btn1' onClick={()=>{setreveal(true)}}>Reveal</button></div></div>}</div>
       <div style={{ display: "flex", gap: "1.5rem", width: "800px", justifyContent: "space-around" }}>
         <Hangman number_of_guesses={incorrectletter.length} />
         <WordToGuess wordtoguess={word} guessedLetters={guessedLetters} reveal={isLoser} /></div>
